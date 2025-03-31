@@ -1,5 +1,6 @@
 #include <cstdint>
 #include <iostream>
+#include <sys/types.h>
 #include "vm.h"
 
 using namespace std;
@@ -7,7 +8,11 @@ using namespace std;
 uint8_t registers[8] = {0};
 uint8_t memory[256] = {0};
 
-void MOV_reg(int addr, uint8_t value) {
+void OUT(uint8_t addr) {
+    cout << memory[addr] << endl;
+}
+
+void MOV_reg(uint8_t addr, uint8_t value) {
     registers[addr] = value;
 }
 
